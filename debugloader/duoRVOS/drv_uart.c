@@ -72,7 +72,7 @@ int dw8250_uart_init()
 {
     uint32_t base, rate;
 
-    base = UART4_BASE;
+    base = UART0_BASE;
 
     /* Resset UART */
     dw8250_write32(base, UART_SSR, 1);
@@ -107,7 +107,7 @@ int dw8250_uart_init()
 int dw8250_uart_putc(char c)
 {
     uint32_t base;
-    base = UART4_BASE;
+    base = UART0_BASE;
     while ((dw8250_read32(base, UART_USR) & 0x2) == 0)
     {
     }

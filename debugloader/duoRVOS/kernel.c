@@ -56,21 +56,28 @@ void start_kernel(void)
     sys_clock_init();
     board_pinmux_config();
 
+    sdelay(1000000);
     dw8250_uart_init();
     dw8250_uart_putc('h');
     dw8250_uart_putc('e');
     dw8250_uart_putc('h');
     dw8250_uart_putc('e');
-    sys_led_ctrl(1);
-    sys_jtag_init();
+    dw8250_uart_putc('h');
+    dw8250_uart_putc('e');
+    dw8250_uart_putc('h');
+    dw8250_uart_putc('e');
+    dw8250_uart_putc('\n');
+    sdelay(100000);
+    // sys_led_ctrl(1);
+    // sys_jtag_init();
 
-    while (1)
-    {
-        sdelay(1000000);
-        sw =!sw;
-        sys_led_ctrl(sw);
-        dw8250_uart_putc('a'+ sw);
-    }
+    // while (1)
+    // {
+    //     sdelay(1000000);
+    //     sw =!sw;
+    //     sys_led_ctrl(sw);
+    //     dw8250_uart_putc('c'+ sw);
+    // }
 
 
     void (*entry)() = (void *)0x80210000;
