@@ -67,7 +67,7 @@ void start_kernel(void)
     // dw8250_uart_putc('h');
     // dw8250_uart_putc('e');
     // dw8250_uart_putc('\n');
-    // sdelay(100000);
+    sdelay(100000);
     // sys_led_ctrl(1);
     // sys_jtag_init();
 
